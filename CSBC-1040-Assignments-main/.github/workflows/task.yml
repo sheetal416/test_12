@@ -1,0 +1,27 @@
+name: test unit test
+
+on:
+   pull_request:
+         - public
+        
+jobs: 
+  run_this_test_file:
+   path:
+   ./task_of_2-main/.github/workflows/test.yml
+
+defaults:
+run: 
+   editor: 
+   command prompt
+
+runs-on: ubuntu-latest
+
+steps:
+  - name: github 
+    run: git init
+
+  -name: node.js
+   run: node -v
+
+  -name: npm
+   run: install npm

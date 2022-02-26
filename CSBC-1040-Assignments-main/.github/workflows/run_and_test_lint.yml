@@ -1,0 +1,20 @@
+name: for running and testing lint file of project
+
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  lint-test:
+    defaults:
+      run:
+        working-directory: ./samples/counter-app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with: 
+          node-version: 12.x
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
